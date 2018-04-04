@@ -8,8 +8,12 @@ import android.widget.Button;
 
 public class SelectLevelActivity extends AppCompatActivity {
 
+    public final static String AGE = "sdz.chapitreTrois.intent.example.AGE";
+    private Button mPasserelle = null;
+
     private Button buttonEasy;
     private Button buttonDifficult;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +23,24 @@ public class SelectLevelActivity extends AppCompatActivity {
         buttonEasy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gameActivity = new Intent(SelectLevelActivity.this, SudokuGameActivity.class);
-                startActivity(gameActivity);
+                Intent intentGame = new Intent(SelectLevelActivity.this, SudokuGameActivity.class);
+                startActivity(intentGame);
             }
         });
+
+        buttonEasy.setEnabled(false); // Non disponible.
         buttonDifficult = (Button) findViewById(R.id.ButtonDifficult);
-        buttonDifficult.setEnabled(false); // Non disponible.
 
+        final SelectLevelActivity lecontext = this;
+        buttonDifficult.setOnClickListener((new Button.OnClickListener(){
+            public void onClick(View V) {
+                Intent defineIntent = new Intent(lecontext, SudokuGameActivity.class);
+                Bundle objetbunble = new Bundle();
 
+                objetbunble.putString("InfoLevelDifficult",buttonDifficult.getText().toString());
+                defineIntent.putExtras(objetbunble);
+                lecontext.startActivity(defineIntent);
+            }
+        }));
     }
 }
