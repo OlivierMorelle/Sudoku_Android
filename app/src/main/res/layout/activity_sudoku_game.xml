@@ -7,10 +7,11 @@
     tools:context="com.example.olivier.sudoku.SudokuGameActivity">
 
 
-    <ListView
-        android:id="@+id/lv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ListView>
-
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="344dp"
+        android:layout_height="95dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
 </android.support.constraint.ConstraintLayout>
