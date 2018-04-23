@@ -2,6 +2,8 @@ package com.example.olivier.sudoku;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -9,7 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SudokuGameActivity extends AppCompatActivity {
-    List<Object> vGrille = new ArrayList<Object>();
+
+    //ListView vGrille = (ListView) findViewById(R.id.listView1);
+    List <vGrille>vGrilleList = new ArrayList<vGrille>();
+
+    private void afficher() throws NoSuchFieldException{
+        vGrille objetGrille =  vGrilleList.get(1);
+        for (vGrilleList objet : objets){
+            Log.i("listView1",objetGrille.getlevl());
+            Log.i("listView1",objetGrille.getnum());
+            Log.i("listView1",objetGrille.getdone());
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +34,7 @@ public class SudokuGameActivity extends AppCompatActivity {
         String InfoPasse= objetbunble.getString("InfoLevelDifficult");
         text.setText(InfoPasse);
 
-        ListView vGrille = (ListView) findViewById(R.id.listView1);
-        Bundle objetbunblevGrille = this.getIntent().getExtras();
-        String InfoGrille= objetbunble.getString("InfovGrille");
-        text.setText(InfoPasse);
     }
-
 
 
 }
